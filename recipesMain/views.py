@@ -4,4 +4,7 @@ def listRecipesView():
     return render(request, "recipeViews/recipeList.html")
 
 def expandRecipeView():
-    return render (request, "recipeViews/recipeExpand.html")
+    return render(request, "recipeViews/recipeExpand.html")
+
+def addRecipeView():
+    return render(request, "recipeViews/recipeAdd.html")
