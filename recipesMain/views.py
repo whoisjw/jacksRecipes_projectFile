@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-def listRecipesView():
+def listRecipesView(request):
     return render(request, "recipeViews/recipeList.html")
 
 def expandRecipeView():
