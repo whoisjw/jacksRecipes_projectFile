@@ -5,9 +5,14 @@
 
 <table class="recipeTable">
     <tr>
-        <th></th>
         <th>Title</th>
         <th>Preview</th>
     </tr>
+    {% for getdata in recipesDisp %}
+    <tr>
+        <td>{{ getdata.title }}</td>
+        <td>{{ getdata.body | truncatechars:50 }}</td>
+    </tr>
+    {% endfor %}
 </table>
 {% endblock %}
