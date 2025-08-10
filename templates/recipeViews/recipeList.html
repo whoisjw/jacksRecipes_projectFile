@@ -10,7 +10,7 @@
     </tr>
     {% for getdata in recipesDisp %}
     <tr>
-        <td>{{ getdata.title }}</td>
+        <td><a href="/recipes/{{ getdata.recipeId }}">{{ getdata.title }}</a></td>
         <td>{{ getdata.body | truncatechars:50 }}</td>
     </tr>
     {% endfor %}
