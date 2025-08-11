@@ -1,18 +1,23 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <h1>Your recipes</h1>
 
-<table class="recipeTable">
-    <tr>
-        <th>Title</th>
-        <th>Preview</th>
-    </tr>
-    {% for getdata in recipesDisp %}
-    <tr>
-        <td><a href="/recipes/{{ getdata.recipeId }}">{{ getdata.title }}</a></td>
-        <td>{{ getdata.body | truncatechars:50 }}</td>
-    </tr>
-    {% endfor %}
-</table>
-{% endblock %}
+<div class="centreColumn">
+
+    <table class="recipeTable">
+        <tr>
+            <th>Title</th>
+            <th>Preview</th>
+        </tr>
+        {% for getdata in recipesDisp %}
+        <tr>
+            <td><a href="/recipes/{{ getdata.recipeId }}">{{ getdata.title }}</a></td>
+            <td>{{ getdata.body | truncatechars:50 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endblock %}
+
+</div>

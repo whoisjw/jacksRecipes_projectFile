@@ -13,6 +13,7 @@ class category(models.Model):
 class recipe(models.Model):
     recipeId = models.BigAutoField(primary_key = True)
     title = models.CharField(max_length = 50)
+    ingredients = models.TextField()
     body = models.TextField()
     tag = models.ManyToManyField(category, db_column = "categoryTitle")
 

@@ -1,0 +1,40 @@
+:root {
+  --retro-bg: #2e2a30;
+  --retro-container-bg: #3a353d;
+  --retro-accent: #ffb347;      
+  --retro-accent-dark: #b36b00;
+  --retro-text: #e0dcd5;         
+  --retro-link: #8cd9c6;         
+  --retro-hover: #ffb347;
+  --retro-border: #8c7e8f;       
+}
+
+/* Containers */
+
+.centreColumn {
+    white-space: pre-line;
+    width: 1280px;
+    max-width: 100%;
+    height: 100%;
+    contain: layout;
+    border: 5px solid var(--retro-border);
+    word-break: keep-all;
+    padding: 10px;
+    background-color: var(--retro-container-bg);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--retro-text);
+}
+
+/* BODY AND EVERYTHING ELSE */
+
+body {
+  color: var(--retro-text);
+  background-color: var(--retro-bg);
+  font-family: 'Lucida Console', 'Courier New', monospace;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}

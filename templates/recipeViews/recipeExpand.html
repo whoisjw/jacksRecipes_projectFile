@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="recipeExpandDiv">
+<div class="centreColumn">
     <h1>{{ recipesDisp.title }}</h1>
-    <p><pre>{{ recipesDisp.body }}</pre></p>
+    <h2>Ingredients</h2>
+    <p>{{ recipesDisp.ingredients }}</p>
+    <h2>Directions</h2>
+    <p>{{ recipesDisp.body }}</p>
 </div>
 {% endblock %}
