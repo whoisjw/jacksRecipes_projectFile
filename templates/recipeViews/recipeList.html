@@ -2,22 +2,18 @@
 {% load static %}
 
 {% block content %}
-<h1>Your recipes</h1>
+<div class="centreTitle"> 
+    <h1>Your recipes</h1>
+</div>
 
 <div class="centreColumn">
-
-    <table class="recipeTable">
-        <tr>
-            <th>Title</th>
-            <th>Preview</th>
-        </tr>
+    <div>
         {% for getdata in recipesDisp %}
-        <tr>
-            <td><a href="/recipes/{{ getdata.recipeId }}">{{ getdata.title }}</a></td>
-            <td>{{ getdata.body | truncatechars:50 }}</td>
-        </tr>
+        <article class="entry">
+            <h3><a href="/recipes/{{ getdata.recipeId }}">{{ getdata.title }}</a></h3>
+            <p>{{ getdata.body | truncatechars:80 }}</p>
+        </article>
         {% endfor %}
-    </table>
-    {% endblock %}
-
+    </div>
 </div>
+{% endblock %}

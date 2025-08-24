@@ -13,13 +13,11 @@
 
 .centreColumn {
     white-space: pre-line;
-    width: 1280px;
-    max-width: 100%;
+    width: 960px;
     height: 100%;
-    contain: layout;
+    padding: 10px;
     border: 5px solid var(--retro-border);
     word-break: keep-all;
-    padding: 10px;
     background-color: var(--retro-container-bg);
     margin: auto;
     display: flex;
@@ -27,6 +25,54 @@
     align-items: center;
     color: var(--retro-text);
 }
+
+.centreTitle{
+  align-items: center;
+  text-align: center;
+}
+
+.entry {
+  line-height: 1;
+}
+
+.entry h1 {
+  line-height: 1.2;
+}
+
+/* NAVBAR */
+
+.navbar {
+  background-color: #1f1b21;
+  overflow: hidden;
+}
+
+.navbar .active {
+  float: left;
+  background-color: #3e3742;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  color: var(--retro-accent);
+}
+
+.navbar a {
+  float: left;
+  color: var(--retro-link);
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar a:hover {
+  background-color: var(--retro-hover);
+  color: #1f1b21;
+}
+
+.navbarRight {
+  float: right;
+}
+
 
 /* BODY AND EVERYTHING ELSE */
 

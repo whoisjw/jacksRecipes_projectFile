@@ -11,6 +11,8 @@
 
 <body>
     <div class="navbar">
+        <a class="{% if url_name == 'homepageView' %}active{% endif %}" href="{% url 'homepageView' %}" >Home</a>
+        <a class="{% if url_name == 'recipesDisp' %}active{% endif %}" href="{% url 'listRecipesView' %}" >Search recipes</a>
     </div>
 
     <div class="mainContentDiv">
