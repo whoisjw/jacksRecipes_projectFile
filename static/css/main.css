@@ -76,6 +76,15 @@
 
 /* BODY AND EVERYTHING ELSE */
 
+.recipeLink {
+  color: #ffb347;
+  text-decoration: none;
+}
+
+.recipeLink:visited {
+  color: #ffb347;
+}
+
 body {
   color: var(--retro-text);
   background-color: var(--retro-bg);

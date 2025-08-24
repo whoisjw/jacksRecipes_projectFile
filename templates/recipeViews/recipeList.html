@@ -10,8 +10,7 @@
     <div>
         {% for getdata in recipesDisp %}
         <article class="entry">
-            <h3><a href="/recipes/{{ getdata.recipeId }}">{{ getdata.title }}</a></h3>
-            <p>{{ getdata.body | truncatechars:80 }}</p>
+            <h3><a class="recipeLink" href="/recipes/{{ getdata.recipeId }}">{{ getdata.title }}</a></h3><p>{{ getdata.body | truncatechars:80 }}</p>
         </article>
         {% endfor %}
     </div>
