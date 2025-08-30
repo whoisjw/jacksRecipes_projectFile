@@ -7,6 +7,17 @@
 </div>
 
 <div class="centreColumn">
+
+    <form class="searchbar" action="/recipes/" method="get">
+        <input name="q" type="text" placeholder="Search...">
+        <select name="tag">
+            <option value=""></option>
+            {% for getdata in category %}
+                <option value="{{ getdata.categoryTitle }}">
+            {% endfor %}
+        </select>
+    </form>
+
     <div>
         {% for getdata in recipesDisp %}
         <article class="entry">

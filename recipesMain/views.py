@@ -5,6 +5,8 @@ from recipesMain.forms import addRecipe
 
 def listRecipesView(request):
     categories = category.objects.all()
+    q = request.GET.get("q")
+    tag = request.GET.get("tag")
 
     recipesDisp = recipe.objects.all()
 
@@ -16,7 +18,7 @@ def expandRecipeView(request, recipeId):
         recipeRequest = HttpResponse("This is recipe %s" % recipeId)
     except:
         raise Http404("Recipe does not exist. Maybe you should write it!")
-    return render(request, "recipeViews/recipeExpand.html", {"recipesDisp": recipesDisp})
+    return render(request, "recipeViews/recipeExpand.html", {"category": categories}, {"recipesDisp": recipesDisp})
 
 def addRecipeView(request):
     recipesForm = addRecipe
