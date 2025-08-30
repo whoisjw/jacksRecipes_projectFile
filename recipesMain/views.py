@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import Http404, HttpResponse
 from recipesMain.models import category, recipe
+from recipesMain.forms import addRecipe
 
 def listRecipesView(request):
     categories = category.objects.all()
@@ -17,5 +18,15 @@ def expandRecipeView(request, recipeId):
         raise Http404("Recipe does not exist. Maybe you should write it!")
     return render(request, "recipeViews/recipeExpand.html", {"recipesDisp": recipesDisp})
 
-def addRecipeView():
-    return render(request, "recipeViews/recipeAdd.html")
+def addRecipeView(request):
+    recipesForm = addRecipe
+
+    if request.method == "POST":
+        recipesForm = addRecipe(request.POST)
+        if recipesForm.is_valid():
+            newRecipe = recipesForm.save(commit=False)
+            newRecipe.save()
+            recipesForm.save()
+            return redirect("/recipes/" + str(newRecipe.recipeId))
+
+    return render(request, "recipeViews/recipeAdd.html", {"recipesForm": recipesForm})

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Input your recipe details below.</h1>
+    <form action="" method='POST'>
+        {% csrf_token %}
+        {{recipesForm.as_p}}
+        <button type="submit" class="btn btn-primary btn-sm" value=""> Save</button>
+    </form>
+{% endblock %}
