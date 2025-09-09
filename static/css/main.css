@@ -76,8 +76,12 @@
 /* SEARCHBAR */
 
 .searchbar {
-  background-color: var(--retro-text);
   
+}
+
+.searchbar input {
+  background-color: var(--retro-text);
+
 }
 
 /* BODY AND EVERYTHING ELSE */

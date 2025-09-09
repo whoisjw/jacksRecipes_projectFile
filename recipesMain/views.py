@@ -3,6 +3,7 @@ from django.http import Http404, HttpResponse
 from recipesMain.models import category, recipe
 from recipesMain.forms import addRecipe
 from django.db.models import Q
+from django.core.paginator import Paginator as P
 
 def listRecipesView(request):
     categories = category.objects.all()
@@ -13,7 +14,10 @@ def listRecipesView(request):
                                         Q(body__icontains=q)) & 
                                         Q(tag__categoryTitle__icontains=tagDDM))
 
-    return render(request, "recipeViews/recipeList.html", {"category": categories, "recipesDisp": recipesDisp})
+    paginator = P(recipesDisp, 2)
+    pageObj = paginator.get_page(request.GET.get('page'))
+
+    return render(request, "recipeViews/recipeList.html", {"category": categories, "pageObj": pageObj})
 
 def expandRecipeView(request, recipeId):
     try:
