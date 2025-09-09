@@ -14,7 +14,7 @@ def listRecipesView(request):
                                         Q(body__icontains=q)) & 
                                         Q(tag__categoryTitle__icontains=tagDDM))
 
-    paginator = P(recipesDisp, 2)
+    paginator = P(recipesDisp, 4)
     pageObj = paginator.get_page(request.GET.get('page'))
 
     return render(request, "recipeViews/recipeList.html", {"category": categories, "pageObj": pageObj})

@@ -12,7 +12,6 @@
 /* Containers */
 
 .centreColumn {
-    white-space: pre-line;
     width: 960px;
     height: 100%;
     padding: 10px;
@@ -76,12 +75,26 @@
 /* SEARCHBAR */
 
 .searchbar {
-  
+
 }
 
 .searchbar input {
   background-color: var(--retro-text);
+}
 
+.searchbar select {
+  background-color: var(--retro-text);
+}
+
+/* PAGINATOR */
+
+.pagination a {
+  color: #ffb347;
+  text-decoration: none;
+}
+
+.pagination a:visited {
+  color: #ffb347;
 }
 
 /* BODY AND EVERYTHING ELSE */
@@ -99,7 +112,5 @@ body {
   color: var(--retro-text);
   background-color: var(--retro-bg);
   font-family: 'Lucida Console', 'Courier New', monospace;
-  margin: 0;
-  padding: 0;
   height: 100%;
 }
