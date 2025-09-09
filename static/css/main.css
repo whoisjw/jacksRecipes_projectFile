@@ -73,6 +73,12 @@
   float: right;
 }
 
+/* SEARCHBAR */
+
+.searchbar {
+  background-color: var(--retro-text);
+  
+}
 
 /* BODY AND EVERYTHING ELSE */
 
