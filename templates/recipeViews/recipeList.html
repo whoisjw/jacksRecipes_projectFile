@@ -9,21 +9,26 @@
 <div class="centreColumn">
 
     <form class="searchbar" action="/recipes/" method="get">
-        <input name="q" type="text" placeholder="Search...">
-        <select name="tag">
-            <option value=""></option>
+        <input name="q" type="text" placeholder="Search..." />
+        <select name="tagDDM">
+            <option value="">None</option>
             {% for getdata in category %}
-                <option value="{{ getdata.categoryTitle }}">
+                <option value="{{ getdata.categoryTitle }}">{{ getdata.categoryTitle }}</option>
             {% endfor %}
         </select>
+        <input type="submit" value="Go!" />
     </form>
 
     <div>
-        {% for getdata in recipesDisp %}
-        <article class="entry">
-            <h3><a class="recipeLink" href="/recipes/{{ getdata.recipeId }}">{{ getdata.title }}</a></h3><p>{{ getdata.body | truncatechars:80 }}</p>
-        </article>
-        {% endfor %}
+        {% if recipesDisp %}
+            {% for getdata in recipesDisp %}
+            <article class="entry">
+                <h3><a class="recipeLink" href="/recipes/{{ getdata.recipeId }}">{{ getdata.title }}</a></h3><p>{{ getdata.body | truncatechars:80 }}</p>
+            </article>
+            {% endfor %}
+        {% else %}
+            <p class="noResult">No results. Maybe you should write this one next!</p>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

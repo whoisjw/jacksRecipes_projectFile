@@ -2,15 +2,18 @@ from django.shortcuts import render, redirect
 from django.http import Http404, HttpResponse
 from recipesMain.models import category, recipe
 from recipesMain.forms import addRecipe
+from django.db.models import Q
 
 def listRecipesView(request):
     categories = category.objects.all()
-    q = request.GET.get("q")
-    tag = request.GET.get("tag")
+    q = request.GET.get("q", default="")
+    tagDDM = request.GET.get("tagDDM", default="")
 
-    recipesDisp = recipe.objects.all()
+    recipesDisp = recipe.objects.filter((Q(title__icontains=q) | 
+                                        Q(body__icontains=q)) & 
+                                        Q(tag__categoryTitle__icontains=tagDDM))
 
-    return render(request, "recipeViews/recipeList.html", {"recipesDisp": recipesDisp})
+    return render(request, "recipeViews/recipeList.html", {"category": categories, "recipesDisp": recipesDisp})
 
 def expandRecipeView(request, recipeId):
     try:
@@ -18,7 +21,7 @@ def expandRecipeView(request, recipeId):
         recipeRequest = HttpResponse("This is recipe %s" % recipeId)
     except:
         raise Http404("Recipe does not exist. Maybe you should write it!")
-    return render(request, "recipeViews/recipeExpand.html", {"category": categories}, {"recipesDisp": recipesDisp})
+    return render(request, "recipeViews/recipeExpand.html", {"recipesDisp": recipesDisp})
 
 def addRecipeView(request):
     recipesForm = addRecipe
