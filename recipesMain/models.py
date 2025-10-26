@@ -15,6 +15,7 @@ class recipe(models.Model):
     title = models.CharField(max_length = 50)
     ingredients = models.TextField()
     body = models.TextField()
+    image = models.ImageField(upload_to="food_images", default="food_images/icon.png")
     tag = models.ManyToManyField(category, db_column = "categoryTitle")
 
     class Meta:

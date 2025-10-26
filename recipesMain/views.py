@@ -4,8 +4,10 @@ from recipesMain.models import category, recipe
 from recipesMain.forms import addRecipe
 from django.db.models import Q
 from django.core.paginator import Paginator as P
+from django.conf import settings
 
 def listRecipesView(request):
+    #search for database entries
     categories = category.objects.all()
     q = request.GET.get("q", default="")
     tagDDM = request.GET.get("tagDDM", default="")
@@ -14,10 +16,11 @@ def listRecipesView(request):
                                         Q(body__icontains=q)) & 
                                         Q(tag__categoryTitle__icontains=tagDDM))
 
+    #handle pagination
     paginator = P(recipesDisp, 4)
     pageObj = paginator.get_page(request.GET.get('page'))
 
-    return render(request, "recipeViews/recipeList.html", {"category": categories, "pageObj": pageObj})
+    return render(request, "recipeViews/recipeList.html", {"category": categories, "pageObj": pageObj,})
 
 def expandRecipeView(request, recipeId):
     try:
