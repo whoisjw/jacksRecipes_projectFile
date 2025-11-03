@@ -6,9 +6,11 @@ class addRecipe(ModelForm):
     class Meta: 
         model = recipe
         widgets = {
-            "ingredients": Textarea(attrs={"rows":6, "cols":30}),
-            "body": Textarea(attrs={"rows":10, "cols": 30})
+            "ingredients": Textarea(attrs={"rows":10, "cols":64}),
+            "body": Textarea(attrs={"rows":20, "cols": 64})
         }
-        fields = ["title", 
+        fields = ["title",
+                "image",
                 "ingredients",
-                "body",]
+                "body",
+                "tag"]

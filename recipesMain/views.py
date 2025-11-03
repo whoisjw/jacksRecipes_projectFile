@@ -34,7 +34,7 @@ def addRecipeView(request):
     recipesForm = addRecipe
 
     if request.method == "POST":
-        recipesForm = addRecipe(request.POST)
+        recipesForm = addRecipe(request.POST, request.FILES)
         if recipesForm.is_valid():
             newRecipe = recipesForm.save(commit=False)
             newRecipe.save()
