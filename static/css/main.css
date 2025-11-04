@@ -9,6 +9,27 @@
   --autumn-border: #bc7a51;            /* muted copper/tan border */
 }
 
+/* FORM CSS */
+
+.centreColumn .addRecipeForm {
+  align-items: left;
+}
+
+.addRecipeForm textarea {
+  border: 3px solid var(--autumn-border);
+  border-radius: 8px;
+}
+
+.addRecipeForm input[type=text] {
+  border: 3px solid var(--autumn-border);
+  border-radius: 8px;
+}
+
+.addRecipeForm select {
+  border: 3px solid var(--autumn-border);
+  border-radius: 8px;
+}
+
 /* Containers */
 
 .centreColumn {
@@ -44,6 +65,25 @@
 .navbar {
   background-color: #21160f; /* very dark roasted brown */
   overflow: hidden;
+
+/* BODY AND EVERYTHING ELSE */
+
+img{
+    width:100%;
+    max-width:250px;
+    border-radius: 8px;
+    border: 2px solid var(--autumn-border);
+    box-shadow: 0 2px 8px #21160f55;
+}
+
+.recipeLink {
+  color: var(--autumn-accent);
+  text-decoration: none;
+}
+
+.recipeLink:visited {
+  color: var(--autumn-accent-dark);
+}
   border-radius: 8px;
 }
 

@@ -6,7 +6,7 @@
         <div class="addRecipeForm">
             <form action="" enctype="multipart/form-data" method='POST'>
                 {% csrf_token %}
-                {{recipesForm.as_p}}v
+                {{recipesForm.as_p}}
                 <button type="submit" class="btn btn-primary btn-sm" value=""> Save</button>
             </form>
         </div>
