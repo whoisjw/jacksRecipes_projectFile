@@ -21,8 +21,10 @@
     background-color: var(--autumn-container-bg);
     margin: auto;
     display: flex;
-    align-items: left;
+    flex-direction: column;
+    align-items: center;
     color: var(--autumn-text);
+    line-height: 0.1;
 }
 
 .addRecipeForm textarea {
@@ -76,15 +78,10 @@
   background-color: #21160f; /* very dark roasted brown */
   overflow: hidden;
 
+}
+
 /* BODY AND EVERYTHING ELSE */
 
-img{
-    width:100%;
-    max-width:250px;
-    border-radius: 8px;
-    border: 2px solid var(--autumn-border);
-    box-shadow: 0 2px 8px #21160f55;
-}
 
 .recipeLink {
   color: var(--autumn-accent);
@@ -92,9 +89,7 @@ img{
 }
 
 .recipeLink:visited {
-  color: var(--autumn-accent-dark);
-}
-  border-radius: 8px;
+  color: var(--autumn-accent-dark); 
 }
 
 .navbar .active {
@@ -126,8 +121,6 @@ img{
 
 /* SEARCHBAR */
 
-.searchbar {}
-
 .searchbar input {
   background-color: var(--autumn-text);
   color: #3b2619;
@@ -151,13 +144,22 @@ img{
 
 /* BODY AND EVERYTHING ELSE */
 
-img{
+.previewImage {
     width:100%;
     max-width:250px;
     border-radius: 8px;
     border: 2px solid var(--autumn-border);
     box-shadow: 0 2px 8px #21160f55;
 }
+
+.expandImage{
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  border: 2px solid var(--autumn-border);
+  box-shadow: 0 2px 8px #21160f55;
+}
+
 
 .recipeLink {
   color: var(--autumn-accent);

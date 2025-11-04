@@ -5,7 +5,32 @@
         <div class="addRecipeForm">
             <form action="" enctype="multipart/form-data" method='POST'>
                 {% csrf_token %}
-                {{recipesForm.as_p}}
+                <p> </p>
+                <div class="formItem">
+                    <label id="idTitle">Title: </label>
+                    <p>{{recipesForm.title}}</p>
+                </div>
+
+                <div class="formItem">
+                    <label id="formItem">Image: </label>
+                    <p>{{recipesForm.image}}</p>
+                </div>
+
+                <div class="formItem">
+                    <label id="idIngredients">Ingredients: </label>
+                    <p>{{recipesForm.ingredients}}</p>
+                </div>
+
+                <div class="formItem">
+                    <label id="idBody">Instructions: </label>
+                    <p>{{recipesForm.body}}</p>
+                </div>
+
+                <div class="formItem">
+                    <label id="idTag">Tag(s): </label>
+                    <p>{{recipesForm.tag}}</p>
+                </div>
+
                 <button type="submit" class="btn btn-primary btn-sm" value=""> Save</button>
             </form>
         </div>
