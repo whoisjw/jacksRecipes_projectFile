@@ -11,8 +11,18 @@
 
 /* FORM CSS */
 
-.centreColumn .addRecipeForm {
-  align-items: left;
+.addRecipeForm {
+    width: 960px;
+    height: 100%;
+    padding: 10px;
+    border: 5px solid var(--autumn-border);
+    border-radius: 8px;
+    word-break: keep-all;
+    background-color: var(--autumn-container-bg);
+    margin: auto;
+    display: flex;
+    align-items: left;
+    color: var(--autumn-text);
 }
 
 .addRecipeForm textarea {

@@ -6,8 +6,9 @@ class addRecipe(ModelForm):
     class Meta: 
         model = recipe
         widgets = {
-            "ingredients": Textarea(attrs={"rows":10, "cols":64}),
-            "body": Textarea(attrs={"rows":20, "cols": 64})
+            "title": Textarea(attrs={"placeholder":"Enter a fitting title...", "rows":1, "cols": 32}),
+            "ingredients": Textarea(attrs={"placeholder":"Enter your recipe's ingredients here...", "rows":10, "cols":64}),
+            "body": Textarea(attrs={"placeholder":"Enter your instructions here...", "rows":20, "cols": 64})
         }
         fields = ["title",
                 "image",

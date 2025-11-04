@@ -2,7 +2,6 @@
 
 {% block content %}
     <h1 class="centreTitle">Input your recipe details below.</h1>
-    <div class="centreColumn">
         <div class="addRecipeForm">
             <form action="" enctype="multipart/form-data" method='POST'>
                 {% csrf_token %}
@@ -10,5 +9,4 @@
                 <button type="submit" class="btn btn-primary btn-sm" value=""> Save</button>
             </form>
         </div>
-    </div>
 {% endblock %}
