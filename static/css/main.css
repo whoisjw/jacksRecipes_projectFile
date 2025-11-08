@@ -162,12 +162,17 @@
 
 
 .recipeLink {
-  color: var(--autumn-accent);
+  color: var(--autumn-link);
   text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .recipeLink:visited {
-  color: var(--autumn-accent-dark);
+  color: var(--autumn-link);
+}
+
+.recipeLink:hover {
+  color: var(--autumn-hover);
 }
 
 body {
