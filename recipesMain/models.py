@@ -24,3 +24,25 @@ class recipe(models.Model):
     def __str__(self):
         return self.title
 
+
+class ingredientTable(models.Model):
+    ingredientId = models.BigAutoField(primary_key = True)
+    name = models.CharField(max_length = 40)
+    description = models.TextField()
+
+    class Meta:
+        db_table = "ingredientTable"
+
+    def __str__(self):
+        return self.title
+
+class ingredientRelations(models.Model):
+    relationId = models.BigAutoField(primary_key = True)
+    recpieId = models.ForeignKey(recipe, on_delete=models.CASCADE)
+    ingredientId = models.ForeignKey(ingredientTable, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
+    unit = models.CharField(max_length=10)
+    notes = models.CharField(max_length=100)
+
+    class Meta:
+        db_table = "ingredientRelations"
