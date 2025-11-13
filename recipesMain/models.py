@@ -13,6 +13,8 @@ class category(models.Model):
 class recipe(models.Model):
     recipeId = models.BigAutoField(primary_key = True)
     title = models.CharField(max_length = 50)
+    prepTime = models.IntegerField()
+    cookTime = models.IntegerField()
     ingredients = models.TextField()
     body = models.TextField()
     image = models.ImageField(upload_to="food_images/", default="food_images/icon.png")
@@ -46,3 +48,18 @@ class ingredientRelations(models.Model):
 
     class Meta:
         db_table = "ingredientRelations"
+
+    def __str__(self):
+        return self.title
+
+class instructions(models.Model): 
+    instructionId = models.BigAutoField(primary_key = True)
+    recipeId = models.ForeignKey(recipe, on_delete=models.CASCADE)
+    stepNumber = models.IntegerField()
+    stepBody = models.TextField(max_length=300)
+
+    class Meta:
+        db_table = "instructions"
+
+    def __str__(self):
+        return self.title
