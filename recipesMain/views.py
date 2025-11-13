@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import Http404, HttpResponse
-from recipesMain.models import category, recipe
-from recipesMain.forms import addRecipe
+from recipesMain.models import category, recipe, ingredientRelations, instructions
+from recipesMain.forms import addRecipe, addIngredient
 from django.db.models import Q
 from django.core.paginator import Paginator as P
 from django.conf import settings
@@ -26,19 +26,24 @@ def expandRecipeView(request, recipeId):
     try:
         recipesDisp = recipe.objects.get(pk=recipeId)
         recipeRequest = HttpResponse("This is recipe %s" % recipeId)
+        #recipesIngredients = ingredientRelations.objects.get(pk=relationId).recipe_set.all()
     except:
         raise Http404("Recipe does not exist. Maybe you should write it!")
-    return render(request, "recipeViews/recipeExpand.html", {"recipesDisp": recipesDisp})
+    return render(request, "recipeViews/recipeExpand.html", {"recipesDisp": recipesDisp, })
 
 def addRecipeView(request):
     recipesForm = addRecipe
 
     if request.method == "POST":
         recipesForm = addRecipe(request.POST, request.FILES)
-        if recipesForm.is_valid():
+        ingredientsForm = addIngredient(request.POST)
+        if recipesForm.is_valid() and ingredientsForm.is_valid():
             newRecipe = recipesForm.save(commit=False)
             newRecipe.save()
+            newIngList = ingredientsForm.save(commit=False)
+            newIngList.save()
             recipesForm.save()
+            ingredientsForm.save()
             return redirect("/recipes/" + str(newRecipe.recipeId))
 
     return render(request, "recipeViews/recipeAdd.html", {"recipesForm": recipesForm})
