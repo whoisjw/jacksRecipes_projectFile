@@ -23,13 +23,19 @@ def listRecipesView(request):
     return render(request, "recipeViews/recipeList.html", {"category": categories, "pageObj": pageObj,})
 
 def expandRecipeView(request, recipeId):
+    id = recipeId
+
     try:
-        recipesDisp = recipe.objects.get(pk=recipeId)
-        recipeRequest = HttpResponse("This is recipe %s" % recipeId)
-        #recipesIngredients = ingredientRelations.objects.get(pk=relationId).recipe_set.all()
+        recipesDisp = recipe.objects.get(pk=id)
+        recipeRequest = HttpResponse("This is recipe %s" % id)
     except:
         raise Http404("Recipe does not exist. Maybe you should write it!")
-    return render(request, "recipeViews/recipeExpand.html", {"recipesDisp": recipesDisp, })
+
+    try:
+        recipesIngredients = ingredientRelations.objects.get(recpieId_id=id)
+    except:
+        raise Http404("Error: could not load recipe steps")
+    return render(request, "recipeViews/recipeExpand.html", {"recipesDisp": recipesDisp, "recipesIngredients":recipesIngredients})
 
 def addRecipeView(request):
     recipesForm = addRecipe

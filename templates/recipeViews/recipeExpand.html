@@ -5,7 +5,9 @@
     <p><img class="expandImage" src="{{ recipesDisp.image.url }}" alt="{{ recipesDisp.image.url }}"></p>
 
     <h2>Ingredients</h2>
- 
+    {% for getdata in recipesIngredients %}
+        <p>{{ getdata.ingredient }} {{ getdata.quantity }} {{ getdata.unit }}</p>
+    {% endfor %}
 
     <h2>Directions</h2>
     <p>{{ recipesDisp.body }}</p>
