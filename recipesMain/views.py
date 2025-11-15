@@ -32,7 +32,7 @@ def expandRecipeView(request, recipeId):
         raise Http404("Recipe does not exist. Maybe you should write it!")
 
     try:
-        recipesIngredients = ingredientRelations.objects.get(recpieId_id=id)
+        recipesIngredients = ingredientRelations.objects.filter(recpieId_id=id)
     except:
         raise Http404("Error: could not load recipe steps")
     return render(request, "recipeViews/recipeExpand.html", {"recipesDisp": recipesDisp, "recipesIngredients":recipesIngredients})
